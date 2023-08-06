@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+h1 {
+  @apply text-[10vw] uppercase font-normal text-center tracking-[-0.025rem] pointer-events-none
+}
+
+nav div {
+  @apply flex mx-4
+}
+
+nav div p {
+  @apply font-normal uppercase text-[0.8em] py-2 px-4
+}
+
+.square {
+  @apply w-[100px] h-[100px] bg-[#fd552f] pointer-events-none
+}
+
+.content-overlay .nav-link {
+  @apply flex
+}
+
+.content-overlay .nav-link span {
+  @apply relative top-[0.3em]
+}
+
+.content-overlay .nav-link a {
+  @apply px-[1em] text-[2em] font-light text-white uppercase
+}
