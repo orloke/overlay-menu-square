@@ -8,6 +8,7 @@ import { gsap } from "gsap";
 export default function Home() {
   useEffect(() => {
     if (window !== undefined) {
+      const tl = gsap.timeline();
       const menu = document.querySelector(".content-overlay");
       gsap.set(menu, { opacity: 0 });
       const squareContainer = document.querySelector(
@@ -28,6 +29,7 @@ export default function Home() {
 
       let squares: HTMLDivElement[] = [];
 
+
       const createSquares = () => {
         for (let i = 0; i < numSquares; i++) {
           const square = document.createElement("div");
@@ -35,10 +37,11 @@ export default function Home() {
           squareContainer.appendChild(square);
           squares.push(square);
         }
+        console.log(squares)
       };
 
       const animateSquares = () => {
-        gsap.fromTo(
+        tl.fromTo(
           squares,
           {
             opacity: 0,
@@ -52,11 +55,9 @@ export default function Home() {
               from: "random",
             },
           },
-        );
-
-        gsap.to(squares, {
+        ).to(squares, {
           opacity: 0,
-          delay: 1.5,
+          delay: 0.3,
           duration: 0.0005,
           stagger: {
             each: 0.004,
@@ -72,7 +73,8 @@ export default function Home() {
         createSquares();
         animateSquares();
 
-        gsap.to(menu, 0.025, {
+        gsap.to(menu,  {
+          duration: 0.025,
           opacity: overlayVisible ? 0 : 1,
           visibility: overlayVisible ? "hidden" : "visible",
           delay: 1.15,
@@ -118,7 +120,7 @@ export default function Home() {
         className='w-screen h-screen flex flex-wrap justify-start items-start overflow-hidden z-30 pointer-events-none '
       ></div>
 
-      <div className='content-overlay fixed top-0 w-screen h-screen flex justify-center items-center gap-[5em] bg-[#242424] text-white -z-10 '>
+      <div className='content-overlay opacity-0 fixed top-0 w-screen h-screen flex justify-center items-center gap-[5em] bg-[#242424] text-white -z-10 '>
         <div className='nav-header'>
           <h1 className='text-[#fd552f] text-[4vw]'>work with us</h1>
         </div>
