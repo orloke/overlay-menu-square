@@ -118,7 +118,7 @@ export default function Home() {
       <div
         id='square-container'
         className='w-screen h-screen flex flex-wrap justify-start items-start overflow-hidden z-30 pointer-events-none '
-      ></div>
+      />
 
       <div className='content-overlay opacity-0 fixed top-0 w-screen h-screen flex justify-center items-center gap-[5em] bg-[#242424] text-white -z-10 '>
         <div className='nav-header'>
